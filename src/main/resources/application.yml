@@ -18,6 +18,29 @@ spring:
           max-idle: 8 # 连接池中的最大空闲连接
           min-idle: 0 # 连接池中的最小空闲连接
       timeout: 3000ms # 连接超时时间（毫秒）
+  devtools:
+    restart:
+      enabled: true  #设置开启热部署
+      additional-paths: src/main/java #重启目录
+      exclude: WEB-INF/**
+  freemarker:
+    cache: false    #页面不加载缓存，修改即时生效
+  data:
+    mongodb:
+#      host: localhost
+#      port: 27017
+#      username: qy
+#      password: 123456
+#      database: mall
+      uri: mongodb://qy:123456@localhost:27017/mall
+  rabbitmq:
+    host: localhost # rabbitmq的连接地址
+    port: 5672 # rabbitmq的连接端口号
+    virtual-host: /mall # rabbitmq的虚拟host
+    username: admin # rabbitmq的用户名
+    password: admin # rabbitmq的密码
+    publisher-confirms: true #如果对异步消息需要回调必须设置为true
+
 
 
 mybatis:
@@ -40,3 +63,4 @@ jwt:
   secret: mySecret #JWT加解密使用的密钥
   expiration: 604800 #JWT的超期限时间(60*60*24)
   tokenHead: Bearer  #JWT负载中拿到开头
+
