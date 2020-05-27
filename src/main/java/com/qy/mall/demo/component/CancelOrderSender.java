@@ -1,6 +1,7 @@
 package com.qy.mall.demo.component;
 
 import com.qy.mall.demo.dto.QueueEnum;
+import lombok.extern.java.Log;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.amqp.AmqpException;
@@ -12,8 +13,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 @Component
+@Log
 public class CancelOrderSender {
-    private static Logger LOGGER = LoggerFactory.getLogger(CancelOrderSender.class);
     @Autowired
     private AmqpTemplate amqpTemplate;
 
@@ -27,6 +28,6 @@ public class CancelOrderSender {
                 return message;
             }
         });
-        LOGGER.info("send delay message orderId:{}",orderId);
+        log.info("send delay message orderId:" + orderId);
     }
 }

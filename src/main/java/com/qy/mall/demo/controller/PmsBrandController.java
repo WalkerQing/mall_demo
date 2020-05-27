@@ -7,6 +7,7 @@ import com.qy.mall.demo.service.PmsBrandService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
@@ -27,6 +28,7 @@ public class PmsBrandController {
     private static final Logger LOGGER = LoggerFactory.getLogger(PmsBrandController.class);
 
     @RequestMapping(value = "listAll", method = RequestMethod.GET)
+    @PreAuthorize("hasAuthority('pms:brand:read')")
     @ResponseBody
     public CommonResult<List<PmsBrand>> getBrandList() {
         return CommonResult.success(demoService.listAllBrand());
