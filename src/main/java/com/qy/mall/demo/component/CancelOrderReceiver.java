@@ -2,8 +2,7 @@ package com.qy.mall.demo.component;
 
 import com.qy.mall.demo.service.OmsPortalOrderService;
 import lombok.extern.java.Log;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+
 import org.springframework.amqp.rabbit.annotation.RabbitHandler;
 import org.springframework.amqp.rabbit.annotation.RabbitListener;
 import org.springframework.beans.factory.annotation.Autowired;
